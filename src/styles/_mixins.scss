@@ -1,0 +1,36 @@
+@mixin wide {
+  @media (min-width: 1824px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1224px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 425px) {
+    @content;
+  }
+}
+
+@mixin mobile-sm {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin font($size, $weight: 400, $line-height: 22px) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+  text-decoration: none;
+}

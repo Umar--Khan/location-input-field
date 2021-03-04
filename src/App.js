@@ -1,6 +1,8 @@
+import LocationSearchField from 'components/LocationSearchField';
+
 const App = () => (
   <div className='App'>
-    <header className='App-header'>App</header>
+    <LocationSearchField />
   </div>
 );
 
