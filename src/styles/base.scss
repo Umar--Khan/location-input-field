@@ -11,7 +11,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0
+  margin: 0;
 }
 
-@import "../components/LocationSearchField/Container/index";
+@import "components/Header/index";
+@import "components/LocationSearchField/Container/index";
