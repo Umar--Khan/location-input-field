@@ -1,0 +1,13 @@
+.location-select-container {
+  background-color: $color-yellow;
+  margin: 0 $space-060;
+  padding: $space-060;
+  display: flex;
+  flex-direction: column;
+}
+
+.location-input-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}

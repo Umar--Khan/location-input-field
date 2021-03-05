@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useMemo } from 'react';
 
 import useDebounce from 'hooks/useDebounce';
 import Suggestions from 'components/LocationSearchField/Suggestions';
-
 import locationQuery from 'service/locationQuery';
+import InputField from 'shared/Fields/Input';
+import Spinner from 'shared/LoadingIndicators/Spinner';
 
 const SearchField = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,8 +14,13 @@ const SearchField = () => {
 
   const { debouncedValue: searchQuery } = useDebounce(searchTerm);
 
+  const isSuggestionsActive = useMemo(
+    () => !isSearching && searchQuery.length > 1 && suggestions.length > 0,
+    [isSearching, searchQuery, suggestions],
+  );
+
   useEffect(() => {
-    if (searchQuery) {
+    if (searchQuery.length > 1) {
       getLocationQuery();
     } else {
       setSuggestions([]);
@@ -28,6 +34,7 @@ const SearchField = () => {
       setSuggestions(data?.results?.docs);
     } catch (e) {
       console.error(e);
+      setError(e);
     } finally {
       setIsSearching(false);
     }
@@ -37,19 +44,30 @@ const SearchField = () => {
     setSearchTerm(value);
   };
 
-  return (
-    <>
-      <h2>Lets find your ideal car</h2>
-      <label htmlFor='pick-up-location'>Pick-up Location</label>
-      <input
+  const renderPickupLocationInputField = useCallback(
+    () => (
+      <InputField
         name='pick-up-location'
         placeholder='city, airport, station, region, district...'
         aria-label='Pick Up Location'
         value={searchTerm}
         onChange={handleTriggerSearch}
       />
-      {isSearching && <p>Loading</p>}
-      {suggestions.length >= 1 && <Suggestions />}
+    ),
+    [searchTerm],
+  );
+
+  return (
+    <>
+      <label htmlFor='pick-up-location'>Pick-up Location</label>
+      <div className='location-input-container'>
+        {renderPickupLocationInputField()}
+        <Spinner loading={isSearching} />
+        <Suggestions
+          suggestionsResults={suggestions}
+          isActive={isSuggestionsActive}
+        />
+      </div>
     </>
   );
 };
