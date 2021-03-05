@@ -1,0 +1,24 @@
+.suggestions-list-item {
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border-bottom: 1px solid $color-grey;
+
+  &:hover {
+    background-color: $color-light-blue;
+  }
+
+  &__content {
+    padding-left: 8px;
+  }
+
+  &--font-emphasized {
+    font-size: 14px;
+  }
+
+  &--font-caption {
+    font-size: 12px;
+  }
+}

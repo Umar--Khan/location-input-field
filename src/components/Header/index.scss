@@ -1,3 +1,18 @@
-.header-wrapper {
+.header {
   background-color: $color-blue;
+}
+
+.header-wrapper {
+  @include desktop {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  &__img {
+    margin: $space-030;
+
+    @include desktop {
+      margin-left: 0;
+    }
+  }
 }

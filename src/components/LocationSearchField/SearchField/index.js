@@ -4,7 +4,6 @@ import useDebounce from 'hooks/useDebounce';
 import Suggestions from 'components/LocationSearchField/Suggestions';
 import locationQuery from 'service/locationQuery';
 import InputField from 'shared/Fields/Input';
-import Spinner from 'shared/LoadingIndicators/Spinner';
 
 const SearchField = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,17 +14,13 @@ const SearchField = () => {
   const { debouncedValue: searchQuery } = useDebounce(searchTerm);
 
   const isSuggestionsActive = useMemo(
-    () => !isSearching && searchQuery.length > 1 && suggestions.length > 0,
-    [isSearching, searchQuery, suggestions],
+    () =>
+      !isSearching &&
+      !error &&
+      searchQuery.length > 1 &&
+      suggestions.length > 0,
+    [isSearching, searchQuery, suggestions, error],
   );
-
-  useEffect(() => {
-    if (searchQuery.length > 1) {
-      getLocationQuery();
-    } else {
-      setSuggestions([]);
-    }
-  }, [searchQuery]);
 
   const getLocationQuery = async () => {
     setIsSearching(true);
@@ -40,6 +35,15 @@ const SearchField = () => {
     }
   };
 
+  useEffect(() => {
+    if (searchQuery.length > 1) {
+      getLocationQuery();
+    } else {
+      setSuggestions([]);
+    }
+    // eslint-disable-next-line
+  }, [searchQuery]);
+
   const handleTriggerSearch = ({ target: { value } }) => {
     setSearchTerm(value);
   };
@@ -52,23 +56,26 @@ const SearchField = () => {
         aria-label='Pick Up Location'
         value={searchTerm}
         onChange={handleTriggerSearch}
+        autoComplete='off'
+        aria-invalid='false'
       />
     ),
     [searchTerm],
   );
 
   return (
-    <>
-      <label htmlFor='pick-up-location'>Pick-up Location</label>
-      <div className='location-input-container'>
+    <div className='location-input'>
+      <label htmlFor='pick-up-location' className='location-input__label'>
+        Pick-up Location
+      </label>
+      <div className='location-input__container'>
         {renderPickupLocationInputField()}
-        <Spinner loading={isSearching} />
         <Suggestions
           suggestionsResults={suggestions}
           isActive={isSuggestionsActive}
         />
       </div>
-    </>
+    </div>
   );
 };
 

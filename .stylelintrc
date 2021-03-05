@@ -1,5 +1,22 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-config-css-modules"],
-  "rules": { "property-case": null },
-  "ignoreFiles": ["build/**/*", "public/**/*", "node_modules"]
+  "extends":[
+    "stylelint-config-standard",
+    "stylelint-config-css-modules"
+  ],
+  "rules":{
+    "property-case":null,
+    "at-rule-no-unknown":[
+      true,
+      {
+        "ignoreAtRules":[
+          "include"
+        ]
+      }
+    ]
+  },
+  "ignoreFiles":[
+    "build/**/*",
+    "public/**/*",
+    "node_modules"
+  ]
 }

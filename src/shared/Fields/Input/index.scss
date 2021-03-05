@@ -3,4 +3,10 @@
   padding: $space-020;
   background-color: $color-white;
   border: none;
+
+  &:focus {
+    border: 1px solid $color-grey;
+    box-shadow: 0 0 0 3px $color-grey;
+    outline: none;
+  }
 }

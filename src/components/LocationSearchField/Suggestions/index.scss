@@ -4,7 +4,8 @@
   right: 0;
   left: 0;
   background-color: white;
-  top: $space-090;
+  top: calc(#{$space-100} + #{$space-010});
+  border: 1px solid $color-dark-grey;
 }
 
 .suggestions-list {

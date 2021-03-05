@@ -1,0 +1,25 @@
+.tag {
+  min-width: 70px;
+  padding: $space-010 $space-020;
+  color: $color-white;
+  text-align: center;
+  display: inline-block;
+
+  @include font($font-050, 500);
+
+  &--maroon {
+    background-color: $color-maroon;
+  }
+
+  &--green {
+    background-color: $color-green;
+  }
+
+  &--blue {
+    background-color: $color-blue;
+  }
+
+  &--dark-grey {
+    background-color: $color-dark-grey;
+  }
+}

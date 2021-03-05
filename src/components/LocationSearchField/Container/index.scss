@@ -1,10 +1,45 @@
 .location-page-container {
   background-color: $color-blue;
-  min-height: 70vh;
+  min-height: 50vh;
+  padding: $space-060 0;
+
+  @include tablet {
+    min-height: 20vh;
+  }
+
+  &__title {
+    @include font($font-065);
+
+    color: $color-white;
+    text-align: center;
+
+    @include tablet {
+      @include font($font-070);
+    }
+  }
+
+  &__wrapper {
+    @include desktop {
+      width: 60%;
+      margin: 0 auto;
+    }
+  }
 }
 
-.title {
-  color: $color-white;
-  text-align: center;
-  font-size: $font-060;
+.location-select-container {
+  background-color: $color-yellow;
+  margin: $space-060;
+  padding: $space-060;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    @include font($font-065, 700);
+
+    margin-bottom: $space-050;
+  }
+
+  @include desktop {
+    margin: $space-060 0;
+  }
 }
