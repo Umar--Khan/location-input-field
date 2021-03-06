@@ -64,6 +64,26 @@ describe('<SearchField />', () => {
     });
   });
 
+  it('Change in input field too short should not fire a fetch request', async () => {
+    const { getByTestId, queryByTestId } = render(<SearchField />);
+
+    const inputField = getByTestId(searchField.inputField);
+
+    const query = 'b';
+
+    fireEvent.change(inputField, {
+      target: { value: query },
+    });
+
+    await waitFor(() => {
+      expect(mockAxios.history.get.length).toBe(0);
+      expect(queryByTestId(suggestions.suggestionItem)).not.toBeInTheDocument();
+      expect(getByTestId(suggestions.container).className).not.toContain(
+        'active',
+      );
+    });
+  });
+
   it('No suggestions if there is an error from API', async () => {
     const { getByTestId, queryByTestId } = render(<SearchField />);
 
