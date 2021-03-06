@@ -1,5 +1,6 @@
 import { PLACE_TYPES_LABELS, PLACE_TYPES_COLORS } from 'const';
 import Tag from 'shared/Tag';
+import { suggestions } from 'testUtils/dataTestIds';
 
 const renderTag = placeType => {
   const label = PLACE_TYPES_LABELS[placeType];
@@ -15,13 +16,20 @@ const SuggestionsItem = ({ suggestion }) => (
     id={`suggestions-list-item-${suggestion.index}`}
     role='option'
     aria-selected='false'
+    data-testid={suggestions.suggestionItem}
   >
     {renderTag(suggestion.placeType)}
     <div className='suggestions-list-item__content'>
-      <p className='suggestions-list-item--font-emphasized'>
+      <p
+        className='suggestions-list-item--font-emphasized'
+        data-testid={suggestions.suggestionItemName}
+      >
         {suggestion.name}
       </p>
-      <p className='suggestions-list-item--font-caption'>
+      <p
+        className='suggestions-list-item--font-caption'
+        data-testid={suggestions.suggestionItemCountry}
+      >
         {suggestion.country}
       </p>
     </div>

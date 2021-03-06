@@ -29,7 +29,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test"
     }
   },
   "browserslist": {
@@ -49,14 +50,23 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
+    "@testing-library/react-hooks": "^5.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios-mock-adapter": "^1.19.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
+    "react-test-renderer": "^17.0.1",
     "stylelint": "^13.11.0",
     "stylelint-config-css-modules": "^2.2.0",
     "stylelint-config-standard": "^20.0.0"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/testUtils"
+    ]
   }
 }

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Render snapshot correctly 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="header-wrapper"
+  >
+    <img
+      alt="rental cars logo"
+      className="header-wrapper__img"
+      src="https://cdn.rcstatic.com/images/site_graphics/newsite/mobile/logos/rc-logo-small--white.svg"
+    />
+  </div>
+</header>
+`;

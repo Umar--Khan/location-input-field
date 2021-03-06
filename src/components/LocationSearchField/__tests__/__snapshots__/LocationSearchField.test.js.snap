@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LocationSearchField /> Render snapshot correctly 1`] = `
+<main
+  className="location-page-container"
+>
+  <div
+    className="location-page-container__wrapper"
+  >
+    <h1
+      className="location-page-container__title"
+      data-testid="page-title"
+    >
+      Car Hire - Search, Compare & Save
+    </h1>
+    <div
+      className="location-select-container"
+    >
+      <h2
+        className="location-select-container__title"
+        data-testid="location-search-field-title"
+      >
+        Lets find your ideal car
+      </h2>
+      <div
+        className="location-input"
+      >
+        <label
+          className="location-input__label"
+          data-testid="search-input-field-label"
+          htmlFor="pick-up-location"
+        >
+          Pick-up Location
+        </label>
+        <div
+          className="location-input__container"
+        >
+          <input
+            aria-invalid="false"
+            aria-label="Pick Up Location"
+            autoComplete="off"
+            className="undefined input-field"
+            data-testid="search-input-field"
+            name="pick-up-location"
+            onChange={[Function]}
+            placeholder="city, airport, station, region, district..."
+            value=""
+          />
+          <div
+            aria-hidden={true}
+            className="suggestions-list-container"
+            data-testid="suggestions-container"
+          >
+            <ul
+              aria-labelledby="pick-up-locations-suggestions"
+              className="suggestions-list"
+              role="listbox"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+`;

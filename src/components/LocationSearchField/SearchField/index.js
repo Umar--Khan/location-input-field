@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState, useMemo } from 'react';
 
 import useDebounce from 'hooks/useDebounce';
-import Suggestions from 'components/LocationSearchField/Suggestions';
+import Suggestions from 'components/LocationSearchField/SearchField/Suggestions';
 import locationQuery from 'service/locationQuery';
 import InputField from 'shared/Fields/Input';
+import { searchField } from 'testUtils/dataTestIds';
 
 const SearchField = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -58,6 +59,7 @@ const SearchField = () => {
         onChange={handleTriggerSearch}
         autoComplete='off'
         aria-invalid='false'
+        data-testid={searchField.inputField}
       />
     ),
     [searchTerm],
@@ -65,7 +67,11 @@ const SearchField = () => {
 
   return (
     <div className='location-input'>
-      <label htmlFor='pick-up-location' className='location-input__label'>
+      <label
+        htmlFor='pick-up-location'
+        className='location-input__label'
+        data-testid={searchField.inputFieldLabel}
+      >
         Pick-up Location
       </label>
       <div className='location-input__container'>

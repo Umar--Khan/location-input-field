@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Container /> Render snapshot correctly 1`] = `
+<main
+  className="location-page-container"
+>
+  <div
+    className="location-page-container__wrapper"
+  >
+    <h1
+      className="location-page-container__title"
+      data-testid="page-title"
+    >
+      Car Hire - Search, Compare & Save
+    </h1>
+    <div
+      className="location-select-container"
+    >
+      <h2
+        className="location-select-container__title"
+        data-testid="location-search-field-title"
+      >
+        Lets find your ideal car
+      </h2>
+    </div>
+  </div>
+</main>
+`;

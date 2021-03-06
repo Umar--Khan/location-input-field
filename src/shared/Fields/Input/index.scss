@@ -2,11 +2,11 @@
   height: $space-090;
   padding: $space-020;
   background-color: $color-white;
-  border: none;
+  border: 1px solid transparent;
 
   &:focus {
     border: 1px solid $color-grey;
-    box-shadow: 0 0 0 3px $color-grey;
+    box-shadow: 0 0 0 1px $color-grey;
     outline: none;
   }
 }

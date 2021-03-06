@@ -1,5 +1,6 @@
+import SuggestionsItem from 'components/LocationSearchField/SearchField/Suggestions/SuggestionsItem';
 import { NO_RESULTS_FOUND } from 'const';
-import SuggestionsItem from 'components/LocationSearchField/Suggestions/SuggestionsItem';
+import { suggestions } from 'testUtils/dataTestIds';
 
 const Suggestions = ({ suggestionsResults, isActive }) => {
   const renderSuggestionsResults = () =>
@@ -11,6 +12,7 @@ const Suggestions = ({ suggestionsResults, isActive }) => {
             id={`suggestions-list-item${suggestion.index}`}
             key={suggestion.index}
             aria-describedby='pick-up-locations-suggestions-no-results'
+            data-testid={suggestions.suggestionItem}
           >
             {NO_RESULTS_FOUND}
           </li>
@@ -26,6 +28,7 @@ const Suggestions = ({ suggestionsResults, isActive }) => {
     <div
       className={`suggestions-list-container${isActive ? ' active' : ''}`}
       aria-hidden={!isActive}
+      data-testid={suggestions.container}
     >
       <ul
         className='suggestions-list'
